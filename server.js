@@ -5,6 +5,10 @@ const io = module.exports.io = require('socket.io')(server)
 
 const PORT = process.env.PORT || 5000
 
+app.get('/', (req,res) => {
+    return res.send("<h2>Wazzup</h2>")
+})
+
 io.on('connection', socket => {
     const id = socket.handshake.query.id
     socket.join(id)
